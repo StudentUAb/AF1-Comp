@@ -18,5 +18,7 @@ atom  : INT
       | '(' addExpr ')'
       ;
 
+// Tokens que não são reconhecidos como palavras-chave
 INT   : [0-9]+ ;
+// Espaços em branco são ignorados 
 WS    : [ \t\r\n]+ -> skip ;
