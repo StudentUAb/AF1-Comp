@@ -6,17 +6,18 @@
 <p align="center">
 ANTLR com Python
 
-# TESTE com ANTLR e Python
+# AF1 com ANTLR e Python
     
 
 </p>
 
-📌 ANTLR com Python: Hello World e Visualização da Árvore de Análise
+📌 ANTLR com Python: AF1 de Compilação
 ------------------
-Este guia descreve como criar, analisar e visualizar uma árvore de análise para uma gramática simples de "Hello World" utilizando ANTLR para gerar os analisadores e Python para executar a análise e a visualização.
+1. Escreva um programa que dada uma expressão com número inteiros sem sinal e apenas com os operadores '+' e '-' reescreva essa expressão na notação pós-fixa.
 
-Este guia passo a passo descreve como criar uma simples gramática Hello World usando ANTLR, gerar o analisador em Python, e visualizar a árvore de análise sintática utilizando networkx e matplotlib.
+2. Acrescente ao programa anterior os operadores '*' e ´/', com a habitual precedência, a possibilidade de os números terem sinal '+' ou '-' e os parênteses.
 
+3. Implemente os programas anteriores usando a ferramenta ANTLR.
 
 
 ## Pré-requisitos
@@ -28,17 +29,17 @@ Este guia passo a passo descreve como criar uma simples gramática Hello World u
 
 ## Passo a Passo
 
-Codigo HelloWorld.py
+Codigo af1.py
 
 ### 1. Criar a Gramática ANTLR
 
-Definimos a gramática no arquivo `HelloWorld.g4`:
+Definimos a gramática no arquivo `Expr.g4`:
  
 ## 2. Gerar os Ficheiros Python com ANTLR
 
 Utilizamos o seguinte comando para gerar os analisadores léxico e sintático em Python a partir da nossa gramática:
 
-<pre>java -jar /caminho/para/antlr-4.x-complete.jar -Dlanguage=Python3 HelloWorld.g4 </pre>
+<pre>java -jar /Users/ivobaptista/Downloads/antlr-4.13.1-complete.jar -Dlanguage=Python3 Expr.g4 </pre>
 
 Certifique-se de substituir /caminho/para/antlr-4.x-complete.jar pelo caminho real onde o arquivo antlr-4.x-complete.jar está localizado no seu sistema.
 
@@ -50,14 +51,26 @@ Instalamos as bibliotecas Python necessárias:
 
 ## 4. Escrever e executar o Script de Teste em Python
 
-TesteHelloWorld.py (Esta todo comentado). Este script carrega a entrada print("Hello, World!"), executa a análise sintática, e visualiza a árvore de análise resultante.
+af1.py (Esta todo comentado). Este script carrega a entrada print("Hello, World!"), executa a análise sintática, e visualiza a árvore de análise resultante.
 
-<pre> python3 TesteHelloWorld.py </pre>
+<pre> python3 af1.py </pre>
 
-Deve aparecer a mensagem "Detetado um comando Hello World!" impressa no console, seguida pela visualização da árvore de análise sintática
+Deve aparecer a mensagem impressa no console, seguida pela visualização da árvore de análise sintática
+
+Expressão de entrada: 1 + 2 - 3
+Empurrado: 1, pilha agora: [1]
+Processado inteiro (INT): 1
+Empurrado: 2, pilha agora: [1, 2]
+Processado inteiro (INT): 2
+Processando expr: 1 + 2
+Empurrado: 3, pilha agora: [3]
+Empurrado: 3, pilha agora: [3, 3]
+Processado inteiro (INT): 3
+Processando expr: 3 - 3
+Empurrado: 0, pilha agora: [0]
+Resultado final: 0
 
 
-Video: [https://youtu.be/dwi4CDZWNkM](https://youtu.be/dwi4CDZWNkM)
 
 O projeto foi feito em Python com ANTLR
 
